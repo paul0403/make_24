@@ -9,7 +9,12 @@ git clone https://github.com/paul0403/make_24.git
 python3 example.py
 ```
 
-Tweak the numbers to your liking.
+Tweak the numbers to your liking. As an example, for the numbers `2, 1, 4, 7`, the package would print
+```
+7 + 4 -> 11
+11 + 1 -> 12
+12 * 2 -> 24
+```
 
 Of course, you can also use the package in your own python scripts:
 ```python
