@@ -5,6 +5,7 @@ Given 4 integers, with basic arithmetic operations alone (add, subtract, multipl
 
 ## Usage
 `git clone https://github.com/paul0403/make_24.git`
+
 `python3 example.py`
 
 Tweak the numbers to your liking.
