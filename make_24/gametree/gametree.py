@@ -101,10 +101,12 @@ class GameDriver:
         if self.cur_node.state.hasWon():
             self.cur_node.state[0].printAllHistory()
             self.hasWon = True
+            return True
         else:
             self.cur_node.evolve()
             for child in self.cur_node.children:
                 self.cur_node = child
-                self.run()
-                if self.hasWon:
-                    return
+                found = self.run()
+                if found:
+                    return True
+        return False
