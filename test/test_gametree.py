@@ -23,6 +23,9 @@ def test_game_not_won(numbers):
     x = GameState([NumberNode(n) for n in numbers])
     assert not x.hasWon()
 
+def test_game_not_won():
+    x = GameState([NumberNode(1), NumberNode(2)])
+    assert not x.hasWon()
 
 #
 # GameTreeNode
