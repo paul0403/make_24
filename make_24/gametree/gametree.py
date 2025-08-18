@@ -97,16 +97,17 @@ class GameDriver:
         self.cur_node = self.root
         self.hasWon = False
 
+    def getHasWon(self):
+        return self.hasWon
+
     def run(self):
         if self.cur_node.state.hasWon():
             self.cur_node.state[0].printAllHistory()
             self.hasWon = True
-            return True
         else:
             self.cur_node.evolve()
             for child in self.cur_node.children:
                 self.cur_node = child
-                found = self.run()
-                if found:
-                    return True
-        return False
+                self.run()
+                if self.hasWon:
+                    return
