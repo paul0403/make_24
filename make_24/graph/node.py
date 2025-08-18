@@ -34,7 +34,10 @@ class Node:
     def printAllHistory(self):
         for parent in self.getParents():
             parent.printAllHistory()
-        print(self)
+
+        # only print the operation nodes
+        if isinstance(self, OpNode):
+            print(self)
 
 
 class NumberNode(Node):
