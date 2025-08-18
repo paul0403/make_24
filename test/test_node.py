@@ -49,6 +49,9 @@ def test_print_all_history(capfd):
     assert "18 - 6 -> 12" in out
     assert "12 / 3 -> 4" in out
 
+    # ensure 6 and 18 are not printed
+    assert "6" not in out.replace("18 / 6", "").replace("18 - 6", "")
+    assert "18" not in out.replace("18 / 6", "").replace("18 - 6", "")
 
 #
 # simple_spawn_from_pair
