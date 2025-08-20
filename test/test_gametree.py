@@ -98,13 +98,23 @@ def test_GameTreeNode_three_numbers_evolve():
 # GameDriver
 #
 def test_game_driver(capfd):
-    game = GameDriver(1, 2, 3, 4)
+    game = GameDriver(1, 2, 3, 4, goal=24)
     game.run()
 
     out, _ = capfd.readouterr()
     assert "2 + 1 -> 3" in out
     assert "3 + 3 -> 6" in out
     assert "6 * 4 -> 24" in out
+
+
+def test_arbitrary_goal(capfd):
+    game = GameDriver(4, 7, 2, 1, goal=20)
+    game.run()
+
+    out, _ = capfd.readouterr()
+    assert "7 + 4 -> 11" in out
+    assert "11 - 1 -> 10" in out
+    assert "10 * 2 -> 20" in out
 
 
 if __name__ == "__main__":
