@@ -1,6 +1,6 @@
 import pytest
 
-from make_24 import NumberNode, OpNode, GameState, GameDriver, GameTreeNode
+from make_24 import NumberNode, OpNode, GameState, GameDriver, GameTreeNode, api
 
 #
 # GameState
@@ -23,9 +23,11 @@ def test_game_not_won(numbers):
     x = GameState([NumberNode(n) for n in numbers])
     assert not x.hasWon()
 
-def test_game_not_won():
-    x = GameState([NumberNode(1), NumberNode(2)])
-    assert not x.hasWon()
+def test_print_no_solution_msg(capfd):
+    api.make_24(1, 1, 1, 1)
+    out, _ = capfd.readouterr()
+    assert "No solution was found." in out
+
 
 #
 # GameTreeNode
