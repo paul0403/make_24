@@ -98,7 +98,7 @@ def test_GameTreeNode_three_numbers_evolve():
 # GameDriver
 #
 def test_game_driver(capfd):
-    game = GameDriver(1, 2, 3, 4, goal=24)
+    game = GameDriver(1, 2, 3, 4)
     game.run()
 
     out, _ = capfd.readouterr()

@@ -91,7 +91,7 @@ class GameDriver:
     Main driver for the game.
     """
 
-    def __init__(self, *numbers, goal):
+    def __init__(self, *numbers, goal=24):
         nodes = [NumberNode(n) for n in numbers]
         self.root = GameTreeNode(GameState(nodes))
         self.cur_node = self.root
