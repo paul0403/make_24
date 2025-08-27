@@ -112,5 +112,15 @@ def test_game_driver(capfd):
     assert "6 * 4 -> 24" in out
 
 
+def test_arbitrary_goal(capfd):
+    game = GameDriver(4, 7, 2, 1, goal=20)
+    game.run()
+
+    out, _ = capfd.readouterr()
+    assert "7 + 4 -> 11" in out
+    assert "11 - 1 -> 10" in out
+    assert "10 * 2 -> 20" in out
+
+
 if __name__ == "__main__":
     pytest.main(["-x", __file__])

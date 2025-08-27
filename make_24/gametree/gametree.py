@@ -91,17 +91,18 @@ class GameDriver:
     Main driver for the game.
     """
 
-    def __init__(self, *numbers):
+    def __init__(self, *numbers, goal=24):
         nodes = [NumberNode(n) for n in numbers]
         self.root = GameTreeNode(GameState(nodes))
         self.cur_node = self.root
         self.hasWon = False
+        self.goal = goal
 
     def getHasWon(self):
         return self.hasWon
 
     def run(self):
-        if self.cur_node.state.hasWon():
+        if self.cur_node.state.hasWon(goal=self.goal):
             self.cur_node.state[0].printAllHistory()
             self.hasWon = True
         else:
